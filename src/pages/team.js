@@ -3,7 +3,11 @@ import React from 'react';
 import './Credit.css';
 
 
-import teamMember1 from './1.png';
+import teamMember1 from '../creditimages/1.jpg';
+import teamMember2 from '../creditimages/2.jpeg';
+import teamMember3 from '../creditimages/3.jpg';
+import teamMember4 from '../creditimages/4.jpg';
+import teamMember5 from '../creditimages/5.jpg';
 
 
   export const TeamPage = () => {
@@ -45,7 +49,7 @@ import teamMember1 from './1.png';
         <div className="column">
           <div className="card">
             <div className="img-container">
-              <img src={teamMember1} alt="Profile" />
+              <img src={teamMember2} alt="Profile" />
             </div>
             <h3>Tanishk Shrivastava</h3>
             <p>Back-end & Database Developer</p>
@@ -69,10 +73,10 @@ import teamMember1 from './1.png';
         <div className="column">
           <div className="card">
             <div className="img-container">
-              <img src={teamMember1} alt="Profile" />
+              <img src={teamMember3} alt="Profile" />
             </div>
             <h3>Yashshivi Jaiswal</h3>
-            <p>UI/UX Designer</p>
+            <p>R&D, Content Social Links</p>
             <div className="icons">
               <a href="#">
                 <i className="fab fa-twitter"></i>
@@ -92,7 +96,7 @@ import teamMember1 from './1.png';
         <div className="column">
           <div className="card">
             <div className="img-container">
-              <img src={teamMember1} alt="Profile" />
+              <img src={teamMember4} alt="Profile" />
             </div>
             <h3>Uditanshu Singh</h3>
             <p>Git n Github </p>
@@ -115,7 +119,7 @@ import teamMember1 from './1.png';
         <div className="column">
           <div className="card">
             <div className="img-container">
-              <img src={teamMember1} alt="Profile" />
+              <img src={teamMember5} alt="Profile" />
             </div>
             <h3>Trivendra Sharma</h3>
             <p>Tester</p>

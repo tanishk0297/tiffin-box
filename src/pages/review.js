@@ -2,10 +2,10 @@ import React from 'react';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-// import 'swiper/swiper.min.css';
-// import 'swiper/components/navigation/navigation.min.css';
-// import 'swiper/components/pagination/pagination.min.css';
 import './ReviewSection.css';
+
+import 'swiper/css/bundle';
+import 'swiper/css/navigation';
 
 SwiperCore.use([Navigation, Pagination, Autoplay]);
 
@@ -31,12 +31,28 @@ const reviews = [
 ];
 
 export const ReviewSection = () => {
+  const swiperRef = React.useRef(null);
+
+  const goPrev = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slidePrev();
+    }
+  };
+
+  const goNext = () => {
+    if (swiperRef.current && swiperRef.current.swiper) {
+      swiperRef.current.swiper.slideNext();
+    }
+  };
+
   return (
     <section className="review-section">
-      <h2 className="section-title">What our customers say</h2>
+      <h2 className="section-title">What Our Customers Say</h2>
       <Swiper
         slidesPerView={1}
-        navigation
+        centeredSlides={true} // Align slides in the center
+        spaceBetween={20} // Add some space between slides
+        navigation={true}
         pagination={{ clickable: true }}
         autoplay={{ delay: 5000 }}
       >
@@ -47,13 +63,22 @@ export const ReviewSection = () => {
               <h3 className="review-name">{review.name}</h3>
               <p className="review-text">{review.text}</p>
               <div className="review-stars">
-                {Array.from(Array(review.stars)).map((_, index) => (
-                  <i key={index} className="fas fa-star"></i>
+                {[...Array(review.stars)].map((_, i) => (
+                  <i key={i} className="fas fa-star"></i>
                 ))}
               </div>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
+      <div className="arrow-buttons">
+        <button className="prev-button" aria-label="Previous" onClick={goPrev}>
+          {/* <i className="fas fa-chevron-left"></i> */}
+        </button>
+        <button className="next-button" aria-label="Next" onClick={goNext}>
+          {/* <i className="fas fa-chevron-right"></i> */}
+        </button>
+      </div>
     </section>
-  )};
+  );
+};

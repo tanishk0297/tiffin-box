@@ -1,63 +1,82 @@
 .review-section {
-    padding: 40px;
-  }
-  
-  .section-title {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .swiper-container {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .swiper-slide {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 100%;
-  }
-  
-  .review-card {
-    background-color: #f1f1f1;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-  }
-  
-  .review-image {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    margin-bottom: 10px;
-  }
-  
-  .review-name {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .review-text {
-    margin-bottom: 20px;
-  }
-  
-  .review-stars {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
-  }
-  
-  .review-stars i {
-    color: gold;
-    margin-right: 2px;
-  }
-  
-  .review-stars i:last-child {
-    margin-right: 0;
-  }
-  
+  text-align: center;
+  margin-top: 40px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.swiper-container {
+  width: 100%;
+  max-width: 800px; /* Adjust the max-width as needed */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-card {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  justify-content: center;
+  align-items: center;
+}
+
+.review-image {
+  width: 120px; /* Adjust the width as needed */
+  height: 120px; /* Adjust the height as needed */
+  border-radius: 50%;
+  margin: 0 auto 20px;
+}
+
+.review-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.review-text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.review-stars {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.review-stars i {
+  color: #f8b20c;
+  margin-right: 5px;
+}
+
+.arrow-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.prev-button,
+.next-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 24px;
+  color: #333;
+  margin: 0 10px;
+}
+
+.prev-button:hover,
+.next-button:hover {
+  color: #f8b20c;
+}
