@@ -1,6 +1,6 @@
 import axios from "axios";
 const http = axios.create({
-  baseURL: "http://localhost:8080",
+  baseURL: "https://tiffin-box-api.vercel.app",
   //baseURL: "http://stockalertapi.codingcubicle.com",
   headers: {
     "Content-type": "application/json"
