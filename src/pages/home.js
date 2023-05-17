@@ -236,8 +236,8 @@ export const Home = () => {
     const isLoggedIn = !!localStorage.getItem('token'); // Assuming 'token' is stored in localStorage upon successful login
   
     // Check if user data in local storage is null
-    const userData = JSON.parse(localStorage.getItem('userData')); // Assuming 'userData' is stored in localStorage upon successful login
-    const isUserDataNull = !userData;
+    const UserObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'userData' is stored in localStorage upon successful login
+    const isUserDataNull = !UserObject;
   
     if (!isLoggedIn || isUserDataNull) {
       alert('Please log in before making a booking.');
