@@ -1,11 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 
-export default function Navbar({ setShowScreen }) {
+const Navbar = ({ setShowScreen }) => {
   const navbarRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
- 
+  const isUserLoggedIn = localStorage.getItem('UserObject');
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -99,4 +98,4 @@ export default function Navbar({ setShowScreen }) {
   );
 };
 
-
+export default Navbar;
