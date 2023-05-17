@@ -34,6 +34,7 @@ const Navbar = ({ setShowScreen }) => {
     // Clear user data and token from local storage
     localStorage.removeItem('UserObject');
     localStorage.removeItem('Token');
+    window.location.reload(); // Refresh the page after logout
   };
 
   return (
@@ -67,16 +68,6 @@ const Navbar = ({ setShowScreen }) => {
         <a href="#contact" onClick={closeMenu}>
           Contact
         </a>
-        {isUserLoggedIn && (
-          <div className="logout-dropdown">
-            <button
-              className={`logout-button ${showLogoutButton ? 'show' : ''}`}
-              onClick={handleLogout}
-            >
-              Logout
-            </button>
-          </div>
-        )}
       </nav>
       <div>
         {!isUserLoggedIn && (
@@ -103,10 +94,13 @@ const Navbar = ({ setShowScreen }) => {
                 )}
               </span>
             </span>
-            <i
-              className={`fas fa-caret-down ${showLogoutButton ? 'show' : ''}`}
-              onClick={() => setShowLogoutButton(!showLogoutButton)}
-            ></i>
+            {showLogoutButton && (
+              <div className="logout-dropdown">
+                <button className="logout-button" onClick={handleLogout}>
+                  Logout
+                </button>
+              </div>
+            )}
           </div>
         )}
       </div>
