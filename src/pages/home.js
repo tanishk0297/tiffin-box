@@ -135,24 +135,53 @@ export const Home = () => {
     setErrorMessage1(message)
     return isFormValid
   }
+  // const ValidateFormb = async () => {
+  //   var isFormValid = true
+  //   var message = {}
+  //   message.Area = await ValidateArea1()
+  //   if (message.Area) {
+  //     isFormValid = false
+  //   }
+  //   message.Duration = await ValidateDuration1()
+  //   if (message.Duration) {
+  //     isFormValid = false
+  //   }
+  //   message.Packages = await Validatepackages1()
+  //   if (message.Packages) {
+  //     isFormValid = false
+  //   }
+  //   setErrorMessageb(message)
+  //   return isFormValid
+  // }
+
   const ValidateFormb = async () => {
-    var isFormValid = true
-    var message = {}
-    message.Area = await ValidateArea1()
+    var isFormValid = true;
+    var message = {};
+    message.Area = await ValidateArea1();
     if (message.Area) {
-      isFormValid = false
+      isFormValid = false;
     }
-    message.Duration = await ValidateDuration1()
+    message.Duration = await ValidateDuration1();
     if (message.Duration) {
-      isFormValid = false
+      isFormValid = false;
     }
-    message.Packages = await Validatepackages1()
+    message.Packages = await Validatepackages1();
     if (message.Packages) {
-      isFormValid = false
+      isFormValid = false;
     }
-    setErrorMessageb(message)
-    return isFormValid
-  }
+    setErrorMessageb(message);
+  
+    // Check if user is logged in
+    const isLoggedIn = localStorage.getItem('Token') !== null; // Assuming 'Token' is stored in localStorage upon successful login
+  
+    if (!isLoggedIn) {
+      alert('Please log in before making a booking.');
+      return false;
+    }
+  
+    return isFormValid;
+  };
+  
   const ValidateEMailId = async () => {
     var mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (state.EMailId.trim() === '') {
@@ -212,52 +241,52 @@ export const Home = () => {
         });
     }
   }
-  // const onBookClick = async (e) => {
-  //   e.preventDefault();
-  //   if (await ValidateFormb()) {
-
-  //     await bookingService.book(bookingState)
-  //       .then(async (response) => {
-  //         if (response?.data.Area.length > 0) {
-  //           alert('you have booked successfully');
-  //           //setSignupSuccess(true)
-  //           setbookingState({ Area: '', Duration: '', Packages: '' })
-  //         }
-  //       })
-  //       .catch(async (e) => {
-  //         console.log(e);
-  //       });
-  //   }
-  // }
   const onBookClick = async (e) => {
     e.preventDefault();
-  
-    // Check if user is logged in
-    const isLoggedIn = localStorage.getItem('email') !== null; // Assuming 'Token' is stored in localStorage upon successful login
-  
-    // Check if user data in local storage is null
-    const userObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' is stored in localStorage upon successful login
-    const isUserDataNull = userObject === null;
-  
-    if (!isLoggedIn || isUserDataNull) {
-      alert('Please log in before making a booking.');
-      return;
-    }
-  
     if (await ValidateFormb()) {
-      await bookingService
-        .book(bookingState)
-        .then((response) => {
-          if (response?.data?.Area?.length > 0) {
-            alert('You have booked successfully.');
-            setbookingState({ Area: '', Duration: '', Packages: '' });
+
+      await bookingService.book(bookingState)
+        .then(async (response) => {
+          if (response?.data.Area.length > 0) {
+            alert('you have booked successfully');
+            //setSignupSuccess(true)
+            setbookingState({ Area: '', Duration: '', Packages: '' })
           }
         })
-        .catch((error) => {
-          console.log(error);
+        .catch(async (e) => {
+          console.log(e);
         });
     }
-  };
+  }
+  // const onBookClick = async (e) => {
+  //   e.preventDefault();
+  
+  //   // Check if user is logged in
+  //   const isLoggedIn = localStorage.getItem('email') !== null; // Assuming 'Token' is stored in localStorage upon successful login
+  
+  //   // Check if user data in local storage is null
+  //   const userObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' is stored in localStorage upon successful login
+  //   const isUserDataNull = userObject === null;
+  
+  //   if (!isLoggedIn || isUserDataNull) {
+  //     alert('Please log in before making a booking.');
+  //     return;
+  //   }
+  
+  //   if (await ValidateFormb()) {
+  //     await bookingService
+  //       .book(bookingState)
+  //       .then((response) => {
+  //         if (response?.data?.Area?.length > 0) {
+  //           alert('You have booked successfully.');
+  //           setbookingState({ Area: '', Duration: '', Packages: '' });
+  //         }
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   }
+  // };
   
   
   const onLoginClick = async (e) => {
