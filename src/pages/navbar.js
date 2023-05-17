@@ -60,28 +60,33 @@ export default function Navbar({ setShowScreen }) {
           Contact
         </a>
       </nav>
-      <div>
-      {/* Rest of your code */}
-      {!isUserLoggedIn && (
-        <i
-          className="fas fa-user"
-          id="login-btn"
-          onClick={() => {
-            setShowScreen('Login');
-          }}
-        ></i>
-      )}
-    </div><div>
+      <div className="login-btn-container">
+        {/* Rest of your code */}
+        {!isUserLoggedIn && (
+          <i
+            className="fas fa-user"
+            id="login-btn"
+            onClick={() => {
+              setShowScreen('Login');
+            }}
+          ></i>
+        )}
+      </div>
+
+      <div className="welcome-message">
         {localStorage.getItem('UserObject') ? (
-          <span style={{ fontFamily: 'Arial', fontSize: '16px', fontWeight: 'bold' }}>
+          <span>
             Welcome{' '}
-            {JSON.parse(localStorage.getItem('UserObject')).email.substring(
-              0,
-              JSON.parse(localStorage.getItem('UserObject')).email.lastIndexOf('@')
-            )}
+            <span className="username">
+              {JSON.parse(localStorage.getItem('UserObject')).email.substring(
+                0,
+                JSON.parse(localStorage.getItem('UserObject')).email.lastIndexOf('@')
+              )}
+            </span>
           </span>
         ) : null}
       </div>
+
     </header>
   );
 }
