@@ -5,6 +5,7 @@ const Navbar = ({ setShowScreen }) => {
   const navbarRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isUserLoggedIn = localStorage.getItem('UserObject');
+  const [showLogoutButton, setShowLogoutButton] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -66,6 +67,16 @@ const Navbar = ({ setShowScreen }) => {
         <a href="#contact" onClick={closeMenu}>
           Contact
         </a>
+        {isUserLoggedIn && (
+          <div className="logout-dropdown">
+            <button
+              className={`logout-button ${showLogoutButton ? 'show' : ''}`}
+              onClick={handleLogout}
+            >
+              Logout
+            </button>
+          </div>
+        )}
       </nav>
       <div>
         {!isUserLoggedIn && (
@@ -78,7 +89,11 @@ const Navbar = ({ setShowScreen }) => {
           ></i>
         )}
         {isUserLoggedIn && (
-          <div className="welcome-message">
+          <div
+            className="welcome-message"
+            onMouseEnter={() => setShowLogoutButton(true)}
+            onMouseLeave={() => setShowLogoutButton(false)}
+          >
             <span>
               Welcome{' '}
               <span className="username">
@@ -87,10 +102,11 @@ const Navbar = ({ setShowScreen }) => {
                   JSON.parse(localStorage.getItem('UserObject')).email.lastIndexOf('@')
                 )}
               </span>
-              <button className="logout-button" onClick={handleLogout}>
-                Logout
-              </button>
             </span>
+            <i
+              className={`fas fa-caret-down ${showLogoutButton ? 'show' : ''}`}
+              onClick={() => setShowLogoutButton(!showLogoutButton)}
+            ></i>
           </div>
         )}
       </div>
