@@ -171,13 +171,15 @@ export const Home = () => {
     }
     setErrorMessageb(message);
   
-    // Check if user is logged in
-    const isLoggedIn = localStorage.getItem('Token') !== null; // Assuming 'Token' is stored in localStorage upon successful login
-  
-    if (!isLoggedIn) {
-      alert('Please log in before making a booking.');
-      return false;
-    }
+   // Check if user is logged in
+   const userData = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' contains the user data in localStorage
+   const isLoggedIn = userData && userData.Token;
+ 
+   if (!isLoggedIn) {
+     alert('Please log in before making a booking.');
+     return false;
+   }
+ 
   
     return isFormValid;
   };
