@@ -23,7 +23,16 @@ export const Home = () => {
   const container = document.getElementById('login-container');
   const ref = useRef(null);
   
-
+  const handleSignout = () => {
+    // Clear any saved user data or tokens from local storage
+    localStorage.removeItem('token');
+    
+    // Clear user-related state
+    setUser(null);
+  
+    // Redirect the user to the login page or any other desired page
+    history.push('/Signup');
+  };
 
   const handleClick = (value) => {
     setbookingState({ ...bookingState, Packages: value })
@@ -315,6 +324,8 @@ export const Home = () => {
         <input type="button" value="Login" className="btn" onClick={(e) => { onLoginClick(e) }} />
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
+        {/* Signout button */}
+        <button type="button" onClick={handleSignout}>Sign Out</button>
         <p>Register Now<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
       </form>
     </div>
