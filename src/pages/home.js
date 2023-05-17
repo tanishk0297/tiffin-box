@@ -233,10 +233,10 @@ export const Home = () => {
     e.preventDefault();
   
     // Check if user is logged in
-    const isLoggedIn = localStorage.getItem('UserObject') !== null; // Assuming 'Token' is stored in localStorage upon successful login
+    const isLoggedIn = localStorage.getItem('email') !== null; // Assuming 'Token' is stored in localStorage upon successful login
   
     // Check if user data in local storage is null
-    const userObject = localStorage.getItem('UserObject', JSON.stringify(response.data)); // Assuming 'UserObject' is stored in localStorage upon successful login
+    const userObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' is stored in localStorage upon successful login
     const isUserDataNull = userObject === null;
   
     if (!isLoggedIn || isUserDataNull) {
