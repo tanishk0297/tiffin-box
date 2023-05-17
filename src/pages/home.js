@@ -212,23 +212,52 @@ export const Home = () => {
         });
     }
   }
+  // const onBookClick = async (e) => {
+  //   e.preventDefault();
+  //   if (await ValidateFormb()) {
+
+  //     await bookingService.book(bookingState)
+  //       .then(async (response) => {
+  //         if (response?.data.Area.length > 0) {
+  //           alert('you have booked successfully');
+  //           //setSignupSuccess(true)
+  //           setbookingState({ Area: '', Duration: '', Packages: '' })
+  //         }
+  //       })
+  //       .catch(async (e) => {
+  //         console.log(e);
+  //       });
+  //   }
+  // }
   const onBookClick = async (e) => {
     e.preventDefault();
+  
+    // Check if user is logged in
+    const isLoggedIn = !!localStorage.getItem('token'); // Assuming 'token' is stored in localStorage upon successful login
+  
+    // Check if user data in local storage is null
+    const userData = JSON.parse(localStorage.getItem('userData')); // Assuming 'userData' is stored in localStorage upon successful login
+    const isUserDataNull = !userData;
+  
+    if (!isLoggedIn || isUserDataNull) {
+      alert('Please log in before making a booking.');
+      return;
+    }
+  
     if (await ValidateFormb()) {
-
       await bookingService.book(bookingState)
         .then(async (response) => {
           if (response?.data.Area.length > 0) {
-            alert('you have booked successfully');
-            //setSignupSuccess(true)
-            setbookingState({ Area: '', Duration: '', Packages: '' })
+            alert('You have booked successfully.');
+            setbookingState({ Area: '', Duration: '', Packages: '' });
           }
         })
-        .catch(async (e) => {
-          console.log(e);
+        .catch(async (error) => {
+          console.log(error);
         });
     }
-  }
+  };
+  
   const onLoginClick = async (e) => {
     e.preventDefault();
     if (await ValidateForm1()) {
