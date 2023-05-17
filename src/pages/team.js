@@ -75,7 +75,7 @@ import teamMember5 from '../creditimages/5.jpg';
             <div className="img-container">
               <img src={teamMember3} alt="Profile" />
             </div>
-            <h3>Yashshivi Jaiswal</h3>
+            <h3>Yashashvi Jaiswal</h3>
             <p>R&D, Content Social Links</p>
             <div className="icons">
               <a href="#">
