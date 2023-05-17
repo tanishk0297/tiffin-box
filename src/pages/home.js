@@ -304,6 +304,7 @@ export const Home = () => {
           else if ((response?.data.status === 1) && (response?.data.Token)) {
             // alert('you have logged in successfully');
             localStorage.setItem('UserObject', JSON.stringify(response.data))
+            setIsLoggedIn(true);
             setShowScreen('')
           }
           else {

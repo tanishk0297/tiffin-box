@@ -59,8 +59,9 @@ export default function Navbar({ setShowScreen }) {
           Contact
         </a>
       </nav>
-      <div className="icons" style={{ color: '#fff' }}>
-        {/* <i className="fas fa-search" id="search-btn"></i> */}
+      <div>
+      {/* Rest of your code */}
+      {!isLoggedIn && (
         <i
           className="fas fa-user"
           id="login-btn"
@@ -68,6 +69,8 @@ export default function Navbar({ setShowScreen }) {
             setShowScreen('Login');
           }}
         ></i>
+      )}
+    </div><div>
         {localStorage.getItem('UserObject') ? (
           <span style={{ fontFamily: 'Arial', fontSize: '16px', fontWeight: 'bold' }}>
             Welcome{' '}
