@@ -325,7 +325,7 @@ export const Home = () => {
         <input type="checkbox" id="remember" />
         <label for="remember">remember me</label>
         {/* Signout button */}
-        <button type="button" onClick={handleSignout}>Sign Out</button>
+        <input type="button" onClick={handleSignout}>Sign Out</input>
         <p>Register Now<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
       </form>
     </div>
