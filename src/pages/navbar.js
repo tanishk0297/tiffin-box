@@ -1,10 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
 
-export const Navbar = ({ setShowScreen }) => {
+export default function Navbar({ setShowScreen }) {
   const navbarRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isUserLoggedIn = localStorage.getItem('UserObject');
+
+ 
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
