@@ -61,7 +61,7 @@ export default function Navbar({ setShowScreen }) {
       </nav>
       <div>
       {/* Rest of your code */}
-      {!isLoggedIn && (
+      {!LoggeddIn && (
         <i
           className="fas fa-user"
           id="login-btn"
