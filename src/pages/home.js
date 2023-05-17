@@ -233,11 +233,11 @@ export const Home = () => {
     e.preventDefault();
   
     // Check if user is logged in
-    const isLoggedIn = !!localStorage.getItem('Token'); // Assuming 'token' is stored in localStorage upon successful login
+    const isLoggedIn = !!localStorage.getItem('Token'); // Assuming 'Token' is stored in localStorage upon successful login
   
     // Check if user data in local storage is null
-    const UserObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'userData' is stored in localStorage upon successful login
-    const isUserDataNull = !UserObject;
+    const userObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' is stored in localStorage upon successful login
+    const isUserDataNull = !userObject;
   
     if (!isLoggedIn || isUserDataNull) {
       alert('Please log in before making a booking.');
@@ -245,14 +245,15 @@ export const Home = () => {
     }
   
     if (await ValidateFormb()) {
-      await bookingService.book(bookingState)
-        .then(async (response) => {
-          if (response?.data.Area.length > 0) {
+      await bookingService
+        .book(bookingState)
+        .then((response) => {
+          if (response?.data?.Area?.length > 0) {
             alert('You have booked successfully.');
             setbookingState({ Area: '', Duration: '', Packages: '' });
           }
         })
-        .catch(async (error) => {
+        .catch((error) => {
           console.log(error);
         });
     }
