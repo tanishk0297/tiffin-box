@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './Navbar.css';
+const isUserLoggedIn = localStorage.getItem('UserObject');
 
 export default function Navbar({ setShowScreen }) {
   const navbarRef = useRef(null);
@@ -61,7 +62,7 @@ export default function Navbar({ setShowScreen }) {
       </nav>
       <div>
       {/* Rest of your code */}
-      {!LoggeddIn && (
+      {!isUserLoggedIn && (
         <i
           className="fas fa-user"
           id="login-btn"
