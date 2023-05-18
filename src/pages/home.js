@@ -177,7 +177,7 @@ export const Home = () => {
 
     if (!isLoggedIn) {
       alert('Please log in before making a booking.');
-      setShowScreen('login');
+      setShowScreen('Login');
       return false;
       
     }
