@@ -420,11 +420,12 @@ export const Home = () => {
           <h3>Area</h3>
           {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
           <select name="Area" className='bookselect' value={bookingState.Area} onChange={onInputChangeb} onBlur={AreaBlur}>
-            <option value="">Were in Bhopal</option>
+          <option value="">Select your Area</option>
             <option value="INDRAPURI">INDRAPURI</option>
             <option value="PATEL NAGAR">PATEL NAGAR</option>
             <option value="ANAND NAGAR">ANAND NAGAR</option>
           </select>
+          <div className='error'>{errorMessageb.Area}</div>
           </div>
           <div className="inputbox">
             <h3>For how many days</h3>
