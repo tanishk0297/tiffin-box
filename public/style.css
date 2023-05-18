@@ -609,6 +609,7 @@ section{
 .bookselect{
 
     font-size: 2.0rem;
+    width: 100%;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus:ital@1&family=Nunito:ital,wght@0,200;0,300;0,400;0,700;1,600&family=Poppins:ital,wght@1,800&display=swap');
