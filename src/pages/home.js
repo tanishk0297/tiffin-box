@@ -414,6 +414,7 @@ export const Home = () => {
           <img src="/assets/pngegg.png" alt="" />
         </div>
         <form action="">
+        <div className="inputbox">
           <h3>Area</h3>
           {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
           <select name="Area" className='bookselect' value={bookingState.Area} onChange={onInputChangeb} onBlur={AreaBlur}>
@@ -422,6 +423,7 @@ export const Home = () => {
             <option value="PATEL NAGAR">PATEL NAGAR</option>
             <option value="ANAND NAGAR">ANAND NAGAR</option>
           </select>
+          </div>
           <div className="inputbox">
             <h3>For how many days</h3>
             <input name="Duration" type="number" placeholder="for how many days" value={bookingState.Duration} onChange={onInputChangeb} onBlur={DurationBlur} />
