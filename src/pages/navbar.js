@@ -3,14 +3,17 @@ import './Navbar.css';
 
 const Navbar = ({ setShowScreen }) => {
   const navbarRef = useRef(null);
+  const menuRef = useRef(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isUserLoggedIn = localStorage.getItem('UserObject');
   const [showLogoutButton, setShowLogoutButton] = useState(false);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('click', handleClickOutsideMenu);
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('click', handleClickOutsideMenu);
     };
   }, []);
 
@@ -27,6 +30,12 @@ const Navbar = ({ setShowScreen }) => {
 
   const closeMenu = () => {
     setIsMenuOpen(false);
+  };
+
+  const handleClickOutsideMenu = (event) => {
+    if (menuRef.current && !menuRef.current.contains(event.target)) {
+      setIsMenuOpen(false);
+    }
   };
 
   const handleLogout = () => {
@@ -69,7 +78,7 @@ const Navbar = ({ setShowScreen }) => {
           Contact
         </a>
       </nav>
-      <div>
+      <div ref={menuRef}>
         {!isUserLoggedIn && (
           <i
             className="fas fa-user"
