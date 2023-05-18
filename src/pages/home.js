@@ -380,7 +380,7 @@ export const Home = () => {
         <input type="button" value="Login" className="btn" onClick={(e) => { onLoginClick(e) }} />
         <input type="checkbox" id="remember" />&nbsp;
         <label for="remember">remember me &nbsp;</label>
-        <p>Register Now &nbsp;<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
+        <p>Register Now ! &nbsp;<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
       </form>
     </div>
 
