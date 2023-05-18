@@ -379,7 +379,7 @@ export const Home = () => {
         <div className='error'>{errorMessage1.Password}</div>
         <input type="button" value="Login" className="btn" onClick={(e) => { onLoginClick(e) }} />
         <input type="checkbox" id="remember" />
-        <label for="remember">remember me</label>
+        <label for="remember">remember me &nbsp;</label>
         <p>Register Now<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
       </form>
     </div>
