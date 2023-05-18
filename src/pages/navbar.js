@@ -33,10 +33,15 @@ const Navbar = ({ setShowScreen }) => {
   };
 
   const handleClickOutsideMenu = (event) => {
-    if (menuRef.current && !menuRef.current.contains(event.target)) {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(event.target) &&
+      !document.getElementById('menu-bar').contains(event.target)
+    ) {
       setIsMenuOpen(false);
     }
   };
+  
 
   const handleLogout = () => {
     // Perform logout logic here
