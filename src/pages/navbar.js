@@ -60,7 +60,7 @@ const Navbar = ({ setShowScreen }) => {
       ></div>
       <div className="logo-container">
         <a href="/" className="logo">
-          <span>Tiffin</span> Box
+          <span >Tiffin</span> Box {/* Increase the size and weight of the logo */}
         </a>
       </div>
       <nav className={`navbar ${isMenuOpen ? 'active' : ''}`} ref={navbarRef}>

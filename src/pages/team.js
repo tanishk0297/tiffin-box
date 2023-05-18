@@ -1,7 +1,5 @@
-import { useEffect } from 'react';
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Credit.css';
-
 
 import teamMember1 from '../creditimages/1.jpg';
 import teamMember2 from '../creditimages/2.jpeg';
@@ -9,14 +7,13 @@ import teamMember3 from '../creditimages/3.jpg';
 import teamMember4 from '../creditimages/4.jpg';
 import teamMember5 from '../creditimages/5.jpg';
 
+export const TeamPage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scroll to the top on page load
+  }, []);
 
-  export const TeamPage = () => {
-    useEffect(() => {
-      window.scrollTo(0, 0); // Scroll to the top on page load
-    }, []);
-  
-  return(
-    <section  style={{ overflow: 'hidden' }}>
+  return (
+    <section style={{ overflow: 'hidden' }}>
       <div className="row">
         <h1>Our Team</h1>
       </div>
@@ -78,6 +75,7 @@ import teamMember5 from '../creditimages/5.jpg';
             <h3>Yashashvi Jaiswal</h3>
             <p>R&D, Content Social Links</p>
             <div className="icons">
+            
               <a href="#">
                 <i className="fab fa-twitter"></i>
               </a>
@@ -90,11 +88,13 @@ import teamMember5 from '../creditimages/5.jpg';
               <a href="#">
                 <i className="fas fa-envelope"></i>
               </a>
+            
             </div>
           </div>
         </div>
+        
         <div className="column">
-          <div className="card">
+        <div className="card">
             <div className="img-container">
               <img src={teamMember4} alt="Profile" />
             </div>
@@ -117,7 +117,7 @@ import teamMember5 from '../creditimages/5.jpg';
           </div>
         </div>
         <div className="column">
-          <div className="card">
+        <div className="card">
             <div className="img-container">
               <img src={teamMember5} alt="Profile" />
             </div>
