@@ -22,7 +22,7 @@ export const Home = () => {
   const [bookingState, setbookingState] = useState({ Area: '', Duration: '', Packages: '' })
   const container = document.getElementById('login-container');
   const ref = useRef(null);
-  
+
 
 
   const handleClick = (value) => {
@@ -170,20 +170,20 @@ export const Home = () => {
       isFormValid = false;
     }
     setErrorMessageb(message);
-  
-   // Check if user is logged in
-   const userData = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' contains the user data in localStorage
-   const isLoggedIn = userData && userData.Token;
- 
-   if (!isLoggedIn) {
-     alert('Please log in before making a booking.');
-     return false;
-   }
- 
-  
+
+    // Check if user is logged in
+    const userData = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' contains the user data in localStorage
+    const isLoggedIn = userData && userData.Token;
+
+    if (!isLoggedIn) {
+      alert('Please log in before making a booking.');
+      return false;
+    }
+
+
     return isFormValid;
   };
-  
+
   const ValidateEMailId = async () => {
     var mailformat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     if (state.EMailId.trim() === '') {
@@ -262,19 +262,19 @@ export const Home = () => {
   }
   // const onBookClick = async (e) => {
   //   e.preventDefault();
-  
+
   //   // Check if user is logged in
   //   const isLoggedIn = localStorage.getItem('email') !== null; // Assuming 'Token' is stored in localStorage upon successful login
-  
+
   //   // Check if user data in local storage is null
   //   const userObject = JSON.parse(localStorage.getItem('UserObject')); // Assuming 'UserObject' is stored in localStorage upon successful login
   //   const isUserDataNull = userObject === null;
-  
+
   //   if (!isLoggedIn || isUserDataNull) {
   //     alert('Please log in before making a booking.');
   //     return;
   //   }
-  
+
   //   if (await ValidateFormb()) {
   //     await bookingService
   //       .book(bookingState)
@@ -289,8 +289,8 @@ export const Home = () => {
   //       });
   //   }
   // };
-  
-  
+
+
   const onLoginClick = async (e) => {
     e.preventDefault();
     if (await ValidateForm1()) {
@@ -304,7 +304,7 @@ export const Home = () => {
           else if ((response?.data.status === 1) && (response?.data.Token)) {
             // alert('you have logged in successfully');
             localStorage.setItem('UserObject', JSON.stringify(response.data))
-            
+
             setShowScreen('')
           }
           else {
@@ -333,18 +333,18 @@ export const Home = () => {
   }
   return (<>
     <header>
-    <div>
-      
-      <Navbar setShowScreen={setShowScreen} />
-    </div>
-      
+      <div>
+
+        <Navbar setShowScreen={setShowScreen} />
+      </div>
+
     </header>
 
     <div className={"signup-form-container " + (showScreen === 'Signup' ? 'active' : '')}>
-    <div id="login-container"></div>
-    <i className="fas fa-times" id="form-close" onClick={() => { setShowScreen('') }}></i>
-  
-    <form>
+      <div id="login-container"></div>
+      <i className="fas fa-times" id="form-close" onClick={() => { setShowScreen('') }}></i>
+
+      <form>
 
         <h3>Signup</h3>
         {signupSuccess ?
@@ -365,8 +365,8 @@ export const Home = () => {
           </>
         }
       </form>
-    
-    </div> 
+
+    </div>
     <div className={"login-form-container " + (showScreen === 'Login' ? 'active' : '')}>
       <i className="fas fa-times" id="form-close" onClick={() => { setShowScreen('') }}></i>
       <form>
@@ -414,12 +414,14 @@ export const Home = () => {
           <img src="/assets/pngegg.png" alt="" />
         </div>
         <form action="">
-          <div className="inputbox">
-            <h3>where in bhopal</h3>
-            <input name="Area" type="text" placeholder="area name" value={bookingState.Area} onChange={onInputChangeb} onBlur={AreaBlur} />
-            <div className='error'>{errorMessageb.Area}</div>
-          </div>
-
+          <h3>Packages</h3>
+          {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
+          <select name="Area" className='bookselect' value={bookingState.Packages} onChange={onInputChangeb} onBlur={PackagesBlur}>
+            <option value="">Were in Bhopal</option>
+            <option value="INDRAPURI">Two Time Meal</option>
+            <option value="PATEL NAGAR">Three Time Meal</option>
+            <option value="ANAND NAGAR">Three Time Deluxe Meal</option>
+          </select>
           <div className="inputbox">
             <h3>For how many days</h3>
             <input name="Duration" type="number" placeholder="for how many days" value={bookingState.Duration} onChange={onInputChangeb} onBlur={DurationBlur} />
@@ -611,7 +613,7 @@ export const Home = () => {
           <a href="#">linkedin</a>
         </div>
       </div>
-     
+
       <h1 className="credit">
         created by &nbsp;
         <Link to="/team" className="tanishk-link">Team Tiffin-Box </Link>
