@@ -378,9 +378,9 @@ export const Home = () => {
         <input name="Password" value={loginState.Password} onChange={onInputChange1} onBlur={PasswordBlur1} type="password" className="box" placeholder="Enter your password" />
         <div className='error'>{errorMessage1.Password}</div>
         <input type="button" value="Login" className="btn" onClick={(e) => { onLoginClick(e) }} />
-        <input type="checkbox" id="remember" />
+        <input type="checkbox" id="remember" />&nbsp;
         <label for="remember">remember me &nbsp;</label>
-        <p>Register Now<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
+        <p>Register Now &nbsp;<a href="#" onClick={() => { setShowScreen('Signup') }}>Signup</a></p>
       </form>
     </div>
 
