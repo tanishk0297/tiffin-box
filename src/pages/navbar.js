@@ -86,7 +86,7 @@ const Navbar = ({ setShowScreen }) => {
             onMouseLeave={() => setShowLogoutButton(false)}
           >
             <span>
-              Welcome{' '}
+              
               <span className="username">
                 {JSON.parse(localStorage.getItem('UserObject')).email.substring(
                   0,
