@@ -414,13 +414,13 @@ export const Home = () => {
           <img src="/assets/pngegg.png" alt="" />
         </div>
         <form action="">
-          <h3>Packages</h3>
+          <h3>Area</h3>
           {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
-          <select name="Area" className='bookselect' value={bookingState.Packages} onChange={onInputChangeb} onBlur={PackagesBlur}>
+          <select name="Area" className='bookselect' value={bookingState.Area} onChange={onInputChangeb} onBlur={AreaBlur}>
             <option value="">Were in Bhopal</option>
-            <option value="INDRAPURI">Two Time Meal</option>
-            <option value="PATEL NAGAR">Three Time Meal</option>
-            <option value="ANAND NAGAR">Three Time Deluxe Meal</option>
+            <option value="INDRAPURI">INDRAPURI</option>
+            <option value="PATEL NAGAR">PATEL NAGAR</option>
+            <option value="ANAND NAGAR">ANAND NAGAR</option>
           </select>
           <div className="inputbox">
             <h3>For how many days</h3>
