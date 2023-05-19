@@ -179,7 +179,7 @@ export const Home = () => {
       alert('Please log in before making a booking.');
       setShowScreen('Login');
       return false;
-      
+
     }
 
 
@@ -400,56 +400,6 @@ export const Home = () => {
 
     </section>
 
-    <section className="book" id="book">
-      <h1 className="heading">
-        <span>b</span>
-        <span>o</span>
-        <span>o</span>
-        <span>k</span>
-        <span className="space"></span>
-        <span>n</span>
-        <span>o</span>
-        <span>w</span>
-      </h1>
-      <div className="row" ref={ref}>
-        <div className="image">
-          <img src="/assets/pngegg.png" alt="" />
-        </div>
-        <form action="">
-        <div className="inputbox">
-          <h3>Area</h3>
-          {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
-          <select name="Area" className='bookselect' value={bookingState.Area} onChange={onInputChangeb} onBlur={AreaBlur}>
-          <option value="">Select your Area</option>
-            <option value="INDRAPURI">INDRAPURI</option>
-            <option value="PATEL NAGAR">PATEL NAGAR</option>
-            <option value="ANAND NAGAR">ANAND NAGAR</option>
-          </select>
-          <div className='error'>{errorMessageb.Area}</div>
-          </div>
-          <div className="inputbox">
-            <h3>For how many days</h3>
-            <input name="Duration" type="number" placeholder="for how many days" value={bookingState.Duration} onChange={onInputChangeb} onBlur={DurationBlur} />
-            <div className='error'>{errorMessageb.Duration}</div>
-          </div>
-
-          <div className="inputbox">
-            <h3>Packages</h3>
-            {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
-            <select name="Packages" className='bookselect' value={bookingState.Packages} onChange={onInputChangeb} onBlur={PackagesBlur}>
-              <option value="">Select your package</option>
-              <option value="Two Time Meal">Two Time Meal</option>
-              <option value="Three Time Meal">Three Time Meal</option>
-              <option value="Three Time Deluxe Meal">Three Time Deluxe Meal</option>
-
-            </select>
-            <div className='error'>{errorMessageb.Packages}</div>
-          </div>
-          <input type="button" className=" btn" value="book now" onClick={(e) => { onBookClick(e) }} onBlur={PasswordBlur1} />
-        </form>
-      </div>
-
-    </section>
     <br />
     <br />
     <br />
@@ -494,6 +444,57 @@ export const Home = () => {
             <a href="javascript:void(0)" className="btn" onClick={() => handleClick("Three Time Deluxe Meal")}>book now </a>
           </div>
         </div>
+      </div>
+
+    </section>
+
+    <section className="book" id="book">
+      <h1 className="heading">
+        <span>b</span>
+        <span>o</span>
+        <span>o</span>
+        <span>k</span>
+        <span className="space"></span>
+        <span>n</span>
+        <span>o</span>
+        <span>w</span>
+      </h1>
+      <div className="row" ref={ref}>
+        <div className="image">
+          <img src="/assets/pngegg.png" alt="" />
+        </div>
+        <form action="">
+          <div className="inputbox">
+            <h3>Area</h3>
+            {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
+            <select name="Area" className='bookselect' value={bookingState.Area} onChange={onInputChangeb} onBlur={AreaBlur}>
+              <option value="">Select your Area</option>
+              <option value="INDRAPURI">INDRAPURI</option>
+              <option value="PATEL NAGAR">PATEL NAGAR</option>
+              <option value="ANAND NAGAR">ANAND NAGAR</option>
+            </select>
+            <div className='error'>{errorMessageb.Area}</div>
+          </div>
+          <div className="inputbox">
+            <h3>For how many days</h3>
+            <input name="Duration" type="number" placeholder="for how many days" value={bookingState.Duration} onChange={onInputChangeb} onBlur={DurationBlur} />
+            <div className='error'>{errorMessageb.Duration}</div>
+          </div>
+
+          <div className="inputbox">
+            <h3>Packages</h3>
+            {/* <input name="Address" type="drop" placeholder="your address" value={bookingState.Address} onChange={onInputChangeb} /> */}
+            <select name="Packages" className='bookselect' value={bookingState.Packages} onChange={onInputChangeb} onBlur={PackagesBlur}>
+              <option value="">Select your package</option>
+              <option value="Two Time Meal">Two Time Meal</option>
+              <option value="Three Time Meal">Three Time Meal</option>
+              <option value="Three Time Deluxe Meal">Three Time Deluxe Meal</option>
+
+            </select>
+            <div className='error'>{errorMessageb.Packages}</div>
+          </div>
+          <input type="button" className=" btn" value="book now" onClick={(e) => { onBookClick(e) }} onBlur={PasswordBlur1} />
+        </form>
       </div>
 
     </section>
